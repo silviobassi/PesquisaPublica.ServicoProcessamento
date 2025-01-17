@@ -2,7 +2,7 @@
 
 public sealed class Alternativa
 {
-    public Guid Id { get; init; } = Guid.NewGuid();
+    public string Id { get; set; } = string.Empty;
     public string Descricao { get; init; } = string.Empty;
     public List<Guid> RespondedorIds { get; init; } = [];
 }
