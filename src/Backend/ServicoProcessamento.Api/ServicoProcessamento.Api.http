@@ -8,62 +8,28 @@ Content-Type: application/json
 }
 
 ###
-
-GET {{servico_processamento}}/pesquisas/6789d14f941477cf4e542fa9/obter
+GET {{servico_processamento}}/pesquisas/678a8c9c4c6f35b4ac3c8687/obter
 
 ###
-
 PATCH {{servico_processamento}}/pesquisas/atualizar
 Content-Type: application/json
 
 {
-  "id": "6789d14f941477cf4e542fa9",
+  "id": "678a8c9c4c6f35b4ac3c8687",
   "codigo": "574",
   "inicio": "2025-01-22T08:00:00",
   "fim": "2025-01-26T00:00:00"
 }
 
 ###
-
-DELETE {{servico_processamento}}/pesquisas/6789d14f941477cf4e542fa9/remover
-
-###
-
-GET {{servico_processamento}}/obter_pesquisa/573
+DELETE {{servico_processamento}}/pesquisas/6789e23da85c066d20f2a1f6/remover
 
 ###
-
-PUT {{servico_processamento}}/pesquisas/inserir_pergunta
-Content-Type: application/json
-
-{
-  "codigoPesquisa": "573",
-  "descricao": "Em quem você votaria?",
-  "alternativas": [
-    "Bolsonaro",
-    "Lula",
-    "Ciro Gomes",
-    "Pablo Marçal"
-  ]
-}
-
-###
-
-POST {{servico_processamento}}/criar_respondedor
+POST {{servico_processamento}}/pesquisas/criar
 Content-Type: application/json
 
 {
   "nome": "João Mendes",
   "email": "joao@email.com",
   "idade": 25
-}
-
-###
-
-PUT {{servico_processamento}}/responder_alternativa
-Content-Type: application/json
-
-{
-  "idAlternativa": "12639aac-d13a-425c-9c40-ebafc1b77322",
-  "idRespondedor": "222edc13-65d0-4c8e-9968-7d13827d25cc"
 }
