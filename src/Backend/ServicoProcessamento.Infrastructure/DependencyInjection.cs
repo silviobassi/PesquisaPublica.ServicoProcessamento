@@ -28,7 +28,7 @@ public static class DependencyInjection
     {
         services.AddSingleton<IMongoClient, MongoClient>(_ =>
         {
-            var connectionString = configuration.GetConnectionString("MongoDb");
+            var connectionString = configuration.GetConnectionString("MongoDbLocal");
             return new MongoClient(connectionString);
         });
         
