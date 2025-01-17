@@ -1,6 +1,7 @@
 ﻿using Microsoft.AspNetCore.Mvc;
 using ServicoProcessamento.Application.Pesquisa.AtualizarPesquisa;
 using ServicoProcessamento.Application.Pesquisa.CreatePesquisa;
+using ServicoProcessamento.Application.Pesquisa.ExcluirPesquisa;
 using ServicoProcessamento.Application.Pesquisa.ObterPesquisaPorId;
 using ServicoProcessamento.Communication.Requests;
 using ServicoProcessamento.Communication.Responses;
@@ -33,5 +34,13 @@ public class PesquisasController : ServicoProcessamentoBaseController
     {
         await useCase.ExecuteAsync(request);
         return Ok();
+    }
+
+    [HttpDelete("{idPesquisa}/remover")]
+    public async Task<IActionResult> RemoverPesquisaAsync([FromServices] IRemoverPesquisaUseCase useCase,
+        [FromRoute] string idPesquisa)
+    {
+        await useCase.ExecuteAsync(idPesquisa);
+        return NoContent();
     }
 }

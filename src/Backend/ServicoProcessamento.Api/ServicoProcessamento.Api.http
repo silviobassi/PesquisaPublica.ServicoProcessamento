@@ -25,6 +25,8 @@ Content-Type: application/json
 
 ###
 
+DELETE {{servico_processamento}}/pesquisas/6789d14f941477cf4e542fa9/remover
+
 ###
 
 GET {{servico_processamento}}/obter_pesquisa/573
