@@ -9,8 +9,8 @@ public class AtualizarPesquisaUseCase(IPesquisaRepository pesquisaRepository) : 
     {
         var pesquisa = await pesquisaRepository.ObterPesquisaPorIdAsync(request.Id);
 
-        ArgumentNullException.ThrowIfNull("Pesquisa não encontrada");
-        
+        if (pesquisa is null) throw new ArgumentException("Pesquisa não encontrada");
+
         pesquisa = new Domain.Pesquisa.Entities.Pesquisa
         {
             Id = request.Id,
