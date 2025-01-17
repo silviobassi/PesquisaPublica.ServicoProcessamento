@@ -1,0 +1,34 @@
+﻿@startuml
+'https://plantuml.com/class-diagram
+
+package domain {
+    class Pesquisa {
+        -id: int
+        -code: String
+        -periodo: LocalDateTime
+    }
+
+    class Respondedor {
+        -id : int
+        -nome: String
+        -email: String
+        -idade: int
+    }
+
+    class Pergunta {
+        -id: long
+        -descricao: String
+    }
+
+    class Alternativa {
+        -id: int
+        -descricao: String
+    }
+
+    Pesquisa "1" --* "1..*" Pergunta : tem
+    /'Pesquisa "1" --> "0..*" Respondedor : tem'/
+    Alternativa "0..*" --> "1..*" Respondedor : tem
+    Pergunta "1" --* "1..*" Alternativa : tem
+}
+
+@enduml

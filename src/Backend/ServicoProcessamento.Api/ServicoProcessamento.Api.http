@@ -1,0 +1,53 @@
+POST {{servico_processamento}}/criar_pesquisa
+Content-Type: application/json
+
+{
+  "codigo": "573",
+  "inicio": "2025-01-14T14:49:34",
+  "fim": "2025-01-17T00:00:00"
+}
+
+###
+
+GET {{servico_processamento}}/obter_pesquisas
+
+###
+
+GET {{servico_processamento}}/obter_pesquisa/573
+
+###
+
+PUT {{servico_processamento}}/pesquisas/inserir_pergunta
+Content-Type: application/json
+
+{
+  "codigoPesquisa": "573",
+  "descricao": "Em quem você votaria?",
+  "alternativas": [
+    "Bolsonaro",
+    "Lula",
+    "Ciro Gomes",
+    "Pablo Marçal"
+  ]
+}
+
+###
+
+POST {{servico_processamento}}/criar_respondedor
+Content-Type: application/json
+
+{
+  "nome": "João Mendes",
+  "email": "joao@email.com",
+  "idade": 25
+}
+
+###
+
+PUT {{servico_processamento}}/responder_alternativa
+Content-Type: application/json
+
+{
+  "idAlternativa": "12639aac-d13a-425c-9c40-ebafc1b77322",
+  "idRespondedor": "222edc13-65d0-4c8e-9968-7d13827d25cc"
+}
