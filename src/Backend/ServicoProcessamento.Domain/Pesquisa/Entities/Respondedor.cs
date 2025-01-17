@@ -2,7 +2,7 @@
 
 public class Respondedor
 {
-    public string Id { get; init; } = string.Empty;
+    public string Id { get; set; } = string.Empty;
     public string Nome { get; init; } = string.Empty;
     public string Email { get; init; } = string.Empty;
     public int Idade { get; init; }
