@@ -9,7 +9,7 @@ Content-Type: application/json
 
 ###
 
-GET {{servico_processamento}}/obter_pesquisas
+GET {{servico_processamento}}/pesquisas/6789d14f941477cf4e542fa9/obter
 
 ###
 

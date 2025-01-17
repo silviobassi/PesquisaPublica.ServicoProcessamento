@@ -48,9 +48,7 @@ public static class MongoDbConfigurator
         BsonClassMap.RegisterClassMap<Pesquisa>(cm =>
         {
             cm.AutoMap();
-            cm.MapIdMember(p => p.Id)
-                .SetIdGenerator(CombGuidGenerator.Instance)
-                .SetSerializer(new GuidSerializer(GuidRepresentation.Standard));
+            cm.MapIdMember(p => p.Id);
             cm.MapMember(p => p.Codigo).SetIsRequired(true);
             cm.MapMember(p => p.Inicio).SetIsRequired(true);
             cm.MapMember(p => p.Fim).SetIsRequired(true);

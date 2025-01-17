@@ -1,5 +1,6 @@
 ﻿using Microsoft.Extensions.DependencyInjection;
 using ServicoProcessamento.Application.Pesquisa.CreatePesquisa;
+using ServicoProcessamento.Application.Pesquisa.ObterPesquisaPorId;
 
 namespace ServicoProcessamento.Application;
 
@@ -14,5 +15,6 @@ public static class DependencyInjection
     private static void AddUseCases(IServiceCollection services)
     {
         services.AddScoped<ICreatePesquisaUseCase, CreatePesquisaUseCase>();
+        services.AddScoped<IObterPesquisaPorIdUseCase, ObterPesquisaPorIdUseCase>();
     }
 }
