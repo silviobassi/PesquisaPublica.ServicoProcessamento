@@ -1,4 +1,5 @@
 ﻿using Microsoft.Extensions.DependencyInjection;
+using ServicoProcessamento.Application.Pesquisa.AtualizarPesquisa;
 using ServicoProcessamento.Application.Pesquisa.CreatePesquisa;
 using ServicoProcessamento.Application.Pesquisa.ObterPesquisaPorId;
 
@@ -16,5 +17,6 @@ public static class DependencyInjection
     {
         services.AddScoped<ICreatePesquisaUseCase, CreatePesquisaUseCase>();
         services.AddScoped<IObterPesquisaPorIdUseCase, ObterPesquisaPorIdUseCase>();
+        services.AddScoped<IAtualizarPesquisaUseCase, AtualizarPesquisaUseCase>();
     }
 }

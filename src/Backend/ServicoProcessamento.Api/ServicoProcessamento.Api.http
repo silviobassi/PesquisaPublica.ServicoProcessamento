@@ -13,6 +13,20 @@ GET {{servico_processamento}}/pesquisas/6789d14f941477cf4e542fa9/obter
 
 ###
 
+PATCH {{servico_processamento}}/pesquisas/atualizar
+Content-Type: application/json
+
+{
+  "id": "6789d14f941477cf4e542fa9",
+  "codigo": "574",
+  "inicio": "2025-01-22T08:00:00",
+  "fim": "2025-01-26T00:00:00"
+}
+
+###
+
+###
+
 GET {{servico_processamento}}/obter_pesquisa/573
 
 ###

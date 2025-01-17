@@ -1,4 +1,5 @@
 ﻿using Microsoft.AspNetCore.Mvc;
+using ServicoProcessamento.Application.Pesquisa.AtualizarPesquisa;
 using ServicoProcessamento.Application.Pesquisa.CreatePesquisa;
 using ServicoProcessamento.Application.Pesquisa.ObterPesquisaPorId;
 using ServicoProcessamento.Communication.Requests;
@@ -24,5 +25,13 @@ public class PesquisasController : ServicoProcessamentoBaseController
     {
         var response = await useCase.ExecuteAsync(idPesquisa);
         return Ok(response);
+    }
+
+    [HttpPatch("atualizar")]
+    public async Task<IActionResult> AtualizarPesquisaAsync([FromServices] IAtualizarPesquisaUseCase useCase,
+        [FromBody] AtualizarPesquisaRequest request)
+    {
+        await useCase.ExecuteAsync(request);
+        return Ok();
     }
 }

@@ -20,4 +20,16 @@ public class PesquisaRepository(IMongoContext context) : IPesquisaRepository
         var filter = Builders<Pesquisa>.Filter.Eq(p => p.Id, idPesquisa);
         return context.Pesquisas.Find(filter).FirstOrDefaultAsync();
     }
+
+    public Task AtualizarPesquisaAsync(Pesquisa pesquisa)
+    {
+        var filter = Builders<Pesquisa>.Filter.Eq(p => p.Id, pesquisa.Id);
+        
+        var update = Builders<Pesquisa>.Update
+            .Set(p => p.Codigo, pesquisa.Codigo)
+            .Set(p => p.Inicio, pesquisa.Inicio)
+            .Set(p => p.Fim, pesquisa.Fim);
+
+        return context.Pesquisas.UpdateOneAsync(filter, update);
+    }
 }
