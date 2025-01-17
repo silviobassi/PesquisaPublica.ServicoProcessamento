@@ -10,7 +10,7 @@ public static class MongoDbConfigurator
 {
     public static void Configure()
     {
-        BsonClassMap.RegisterClassMap<Respondedor>(cm =>
+        /*BsonClassMap.RegisterClassMap<Respondedor>(cm =>
         {
             cm.AutoMap();
             cm.MapIdMember(r => r.Id)
@@ -32,7 +32,7 @@ public static class MongoDbConfigurator
                 .SetSerializer(
                     new EnumerableInterfaceImplementerSerializer<List<Guid>>(
                         new GuidSerializer(GuidRepresentation.Standard)));
-        });
+        });*/
 
         
         BsonClassMap.RegisterClassMap<Pergunta>(cm =>

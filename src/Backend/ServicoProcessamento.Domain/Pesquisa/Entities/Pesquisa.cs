@@ -7,7 +7,7 @@ public sealed class Pesquisa
     public DateTime Inicio { get; init; }
     public DateTime Fim { get; init; }
     public List<Pergunta>? Perguntas { get; init; } = [];
-
+    
     public void AddPergunta(Pergunta pergunta)
     {
         Perguntas?.Add(pergunta);

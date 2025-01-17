@@ -30,4 +30,4 @@ app.MapControllers();
 
 MongoDbConfigurator.Configure();
 
-app.Run();
+await app.RunAsync();

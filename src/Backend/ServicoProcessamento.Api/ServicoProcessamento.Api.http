@@ -1,4 +1,4 @@
-POST {{servico_processamento}}/criar_pesquisa
+POST {{servico_processamento}}/pesquisas/criar
 Content-Type: application/json
 
 {

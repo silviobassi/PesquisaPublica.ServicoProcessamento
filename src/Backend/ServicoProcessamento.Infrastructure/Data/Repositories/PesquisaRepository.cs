@@ -7,7 +7,7 @@ namespace ServicoProcessamento.Infrastructure.Data.Repositories;
 
 public class PesquisaRepository(IMongoContext context) : IPesquisaRepository
 {
-    public async Task Create(Pesquisa pesquisa)
+    public async Task CreateAsync(Pesquisa pesquisa)
     {
         await context.Pesquisas.InsertOneAsync(pesquisa);
     }
