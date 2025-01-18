@@ -1,8 +1,8 @@
 ﻿using Microsoft.AspNetCore.Mvc;
 using ServicoProcessamento.Application.Pesquisa.AtualizarPesquisa;
 using ServicoProcessamento.Application.Pesquisa.CreatePesquisa;
-using ServicoProcessamento.Application.Pesquisa.ExcluirPesquisa;
 using ServicoProcessamento.Application.Pesquisa.ObterPesquisaPorId;
+using ServicoProcessamento.Application.Pesquisa.RemoverPesquisa;
 using ServicoProcessamento.Communication.Requests;
 using ServicoProcessamento.Communication.Responses;
 

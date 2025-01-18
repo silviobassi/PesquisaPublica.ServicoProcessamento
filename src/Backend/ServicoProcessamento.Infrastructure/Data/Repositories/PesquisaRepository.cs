@@ -37,8 +37,9 @@ public class PesquisaRepository(IMongoContext context) : IPesquisaRepository
     public async Task<long> RemoverPesquisaAsync(string idPesquisa)
     {
         var filter = Builders<Pesquisa>.Filter.Eq(p => p.Id, idPesquisa);
-        // verificar se foi excluído realmente
+
         var deleteResult = await context.Pesquisas.DeleteOneAsync(filter);
+        
         return deleteResult.DeletedCount;
     }
 }

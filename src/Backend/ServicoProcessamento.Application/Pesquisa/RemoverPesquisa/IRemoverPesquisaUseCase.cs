@@ -1,4 +1,4 @@
-namespace ServicoProcessamento.Application.Pesquisa.ExcluirPesquisa;
+namespace ServicoProcessamento.Application.Pesquisa.RemoverPesquisa;
 
 public interface IRemoverPesquisaUseCase
 {

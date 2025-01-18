@@ -22,7 +22,7 @@ Content-Type: application/json
 }
 
 ###
-DELETE {{servico_processamento}}/pesquisas/6789e23da85c066d20f2a1f6/remover
+DELETE {{servico_processamento}}/pesquisas/678a91b56a2e316c0310a99d/remover
 
 ###
 POST {{servico_processamento}}/pesquisas/criar

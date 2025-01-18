@@ -1,8 +1,8 @@
 ﻿using Microsoft.Extensions.DependencyInjection;
 using ServicoProcessamento.Application.Pesquisa.AtualizarPesquisa;
 using ServicoProcessamento.Application.Pesquisa.CreatePesquisa;
-using ServicoProcessamento.Application.Pesquisa.ExcluirPesquisa;
 using ServicoProcessamento.Application.Pesquisa.ObterPesquisaPorId;
+using ServicoProcessamento.Application.Pesquisa.RemoverPesquisa;
 
 namespace ServicoProcessamento.Application;
 
