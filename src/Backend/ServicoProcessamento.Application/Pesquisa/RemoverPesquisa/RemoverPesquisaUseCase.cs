@@ -7,9 +7,14 @@ public class RemoverPesquisaUseCase(IPesquisaRepository pesquisaRepository) : IR
     public async Task ExecuteAsync(string idPesquisa)
     {
         // Se a pesquisa já estiver ativa e com respostas, não deve ser possível excluí-la
+
+        var pesquisa = await pesquisaRepository.ObterPesquisaPorIdAsync(idPesquisa);
+
+        if (pesquisa.NaoExpirada && pesquisa.TemPerguntaRespondida)
+            throw new ArgumentException("A Pesquisa não pode ser removida pois já está sendo respondida");
         
         var deleteCount = await pesquisaRepository.RemoverPesquisaAsync(idPesquisa);
-        
-        if (deleteCount == 0) throw new ArgumentException("Pesquisa não encontrada");
+
+        if (deleteCount == 0) throw new ArgumentException("A Pesquisa não foi removida");
     }
 }
