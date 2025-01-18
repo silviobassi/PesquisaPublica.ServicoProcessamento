@@ -6,6 +6,6 @@ public interface IPesquisaRepository
 {
     Task CreateAsync(Pesquisa pesquisa);
     Task<Pesquisa> ObterPesquisaPorIdAsync(string idPesquisa);
-    Task AtualizarPesquisaAsync(Pesquisa pesquisa);
-    Task RemoverPesquisaAsync(string idPesquisa);
+    Task<(long MatchedCount, long ModifiedCount)> AtualizarPesquisaAsync(Pesquisa pesquisa);
+    Task<long> RemoverPesquisaAsync(string idPesquisa);
 }

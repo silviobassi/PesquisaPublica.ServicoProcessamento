@@ -7,11 +7,7 @@ public class AtualizarPesquisaUseCase(IPesquisaRepository pesquisaRepository) : 
 {
     public async Task ExecuteAsync(AtualizarPesquisaRequest request)
     {
-        var pesquisa = await pesquisaRepository.ObterPesquisaPorIdAsync(request.Id);
-
-        if (pesquisa is null) throw new ArgumentException("Pesquisa não encontrada");
-
-        pesquisa = new Domain.Pesquisa.Entities.Pesquisa
+        var pesquisa = new Domain.Pesquisa.Entities.Pesquisa
         {
             Id = request.Id,
             Codigo = request.Codigo,
@@ -19,6 +15,10 @@ public class AtualizarPesquisaUseCase(IPesquisaRepository pesquisaRepository) : 
             Fim = request.Fim
         };
 
-        await pesquisaRepository.AtualizarPesquisaAsync(pesquisa);
+        var (matchedCount, modifiedCount) = await pesquisaRepository.AtualizarPesquisaAsync(pesquisa);
+
+        if (matchedCount == 0) throw new ArgumentException("Pesquisa não encontrada");
+
+        if (modifiedCount == 0) throw new ArgumentException("Nenhuma alteração realizada");
     }
 }

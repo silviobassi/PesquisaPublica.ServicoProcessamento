@@ -13,14 +13,14 @@ public class PesquisaRepository(IMongoContext context) : IPesquisaRepository
         pesquisa.Id = ObjectId.GenerateNewId().ToString();
         await context.Pesquisas.InsertOneAsync(pesquisa);
     }
-    
+
     public async Task<Pesquisa> ObterPesquisaPorIdAsync(string idPesquisa)
     {
         var filter = Builders<Pesquisa>.Filter.Eq(p => p.Id, idPesquisa);
         return await context.Pesquisas.Find(filter).FirstOrDefaultAsync();
     }
 
-    public async Task AtualizarPesquisaAsync(Pesquisa pesquisa)
+    public async Task<(long MatchedCount, long ModifiedCount)> AtualizarPesquisaAsync(Pesquisa pesquisa)
     {
         var filter = Builders<Pesquisa>.Filter.Eq(p => p.Id, pesquisa.Id);
 
@@ -28,15 +28,17 @@ public class PesquisaRepository(IMongoContext context) : IPesquisaRepository
             .Set(p => p.Codigo, pesquisa.Codigo)
             .Set(p => p.Inicio, pesquisa.Inicio)
             .Set(p => p.Fim, pesquisa.Fim);
-
-        // verificar se foi atualizado realmente
-        await context.Pesquisas.UpdateOneAsync(filter, update);
+        
+        var updateResult = await context.Pesquisas.UpdateOneAsync(filter, update);
+        
+        return (updateResult.MatchedCount, updateResult.ModifiedCount);
     }
 
-    public async Task RemoverPesquisaAsync(string idPesquisa)
+    public async Task<long> RemoverPesquisaAsync(string idPesquisa)
     {
         var filter = Builders<Pesquisa>.Filter.Eq(p => p.Id, idPesquisa);
         // verificar se foi excluído realmente
-        await context.Pesquisas.DeleteOneAsync(filter);
+        var deleteResult = await context.Pesquisas.DeleteOneAsync(filter);
+        return deleteResult.DeletedCount;
     }
 }
