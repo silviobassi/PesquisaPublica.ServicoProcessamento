@@ -10,7 +10,7 @@ public class RemoverPesquisaUseCase(IPesquisaRepository pesquisaRepository) : IR
 
         var pesquisa = await pesquisaRepository.ObterPesquisaPorIdAsync(idPesquisa);
 
-        if (pesquisa.NaoExpirada && pesquisa.TemPerguntaRespondida)
+        if (pesquisa.EstaSendoRespondida)
             throw new ArgumentException("A Pesquisa não pode ser removida pois já está sendo respondida");
         
         var deleteCount = await pesquisaRepository.RemoverPesquisaAsync(idPesquisa);

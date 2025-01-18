@@ -20,7 +20,9 @@ public sealed class Pesquisa
 
     public bool PodeResponder() => Ativa && !Expirada;
 
-    public bool TemPerguntaRespondida => Perguntas?.Any(p => p.TemAlternativaRespondida) ?? false;
+    public bool EstaSendoRespondida => NaoExpirada && TemPerguntaRespondida;
 
-    public bool NaoExpirada => !Expirada;
+    private bool NaoExpirada => !Expirada;
+
+    private bool TemPerguntaRespondida => Perguntas?.Any(p => p.TemAlternativaRespondida) ?? false;
 }
