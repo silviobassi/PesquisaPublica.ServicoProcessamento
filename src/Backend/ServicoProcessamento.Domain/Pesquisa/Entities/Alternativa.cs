@@ -4,5 +4,5 @@ public sealed class Alternativa
 {
     public string Id { get; set; } = string.Empty;
     public string Descricao { get; init; } = string.Empty;
-    public List<Guid> RespondedorIds { get; init; } = [];
+    public List<string> RespondedorIds { get; init; } = [];
 }
