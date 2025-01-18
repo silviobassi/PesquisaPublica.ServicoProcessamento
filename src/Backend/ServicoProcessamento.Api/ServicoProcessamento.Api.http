@@ -8,7 +8,7 @@ Content-Type: application/json
 }
 
 ###
-GET {{servico_processamento}}/pesquisas/678a8c9c4c6f35b4ac3c8687/obter
+GET {{servico_processamento}}/pesquisas/678b1c055c58a95301211d2c/obter
 
 ###
 PATCH {{servico_processamento}}/pesquisas/atualizar
