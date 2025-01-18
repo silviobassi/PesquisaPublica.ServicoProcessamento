@@ -6,5 +6,5 @@ public sealed class Pergunta
     public string Descricao { get; init; } = string.Empty;
     public List<Alternativa>? Alternativas { get; init; } = [];
     
-    public bool TemAlternativaRespondida() => Alternativas?.Any(a => a.RespondedorIds.Count > 0) ?? false;
+    public bool TemAlternativaRespondida => Alternativas?.Any(a => a.RespondedorIds.Count > 0) ?? false;
 }

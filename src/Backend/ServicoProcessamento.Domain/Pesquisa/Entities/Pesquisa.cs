@@ -17,7 +17,10 @@ public sealed class Pesquisa
     public void Ativar() => Ativa = true;
 
     public void AddPergunta(Pergunta pergunta) => Perguntas?.Add(pergunta);
-    
+
     public bool PodeResponder() => Ativa && !Expirada;
-    
+
+    public bool TemPerguntaRespondida => Perguntas?.Any(p => p.TemAlternativaRespondida) ?? false;
+
+    public bool NaoExpirada => !Expirada;
 }
