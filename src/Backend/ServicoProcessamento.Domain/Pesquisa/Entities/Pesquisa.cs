@@ -13,11 +13,11 @@ public sealed class Pesquisa
     public List<Pergunta>? Perguntas { get; init; } = [];
 
     public void Desativar() => Ativa = false;
-    
+
     public void Ativar() => Ativa = true;
+
+    public void AddPergunta(Pergunta pergunta) => Perguntas?.Add(pergunta);
     
-    public void AddPergunta(Pergunta pergunta)
-    {
-        Perguntas?.Add(pergunta);
-    }
+    public bool PodeResponder() => Ativa && !Expirada;
+    
 }
