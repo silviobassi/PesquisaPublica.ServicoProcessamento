@@ -7,13 +7,9 @@ public class AtualizarPesquisaUseCase(IPesquisaRepository pesquisaRepository) : 
 {
     public async Task ExecuteAsync(AtualizarPesquisaRequest request)
     {
-        var pesquisa = new Domain.Pesquisa.Entities.Pesquisa
-        {
-            Id = request.Id,
-            Codigo = request.Codigo,
-            Inicio = request.Inicio,
-            Fim = request.Fim
-        };
+        var pesquisa = new Domain.Pesquisa.Entities.Pesquisa(request.Codigo, request.Inicio, request.Fim);
+
+        pesquisa.ObterId(request.Id);
 
         var (matchedCount, modifiedCount) = await pesquisaRepository.AtualizarPesquisaAsync(pesquisa);
 

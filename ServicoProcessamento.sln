@@ -18,7 +18,7 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "tests", "tests", "{88BEFD10
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ServicoProcessamento.Communication", "src\Shared\ServicoProcessamento.Communication\ServicoProcessamento.Communication.csproj", "{373194FE-9715-4993-8E5D-93CFFFDB32B2}"
 EndProject
-Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Docker", "Docker", "{AE819B01-54F5-4A27-9333-60FEDB5C1EEA}"
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "docker", "docker", "{AE819B01-54F5-4A27-9333-60FEDB5C1EEA}"
 	ProjectSection(SolutionItems) = preProject
 		Docker\docker-compose.yml = Docker\docker-compose.yml
 	EndProjectSection

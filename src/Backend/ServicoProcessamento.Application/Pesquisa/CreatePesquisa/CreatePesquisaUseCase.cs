@@ -8,8 +8,7 @@ public class CreatePesquisaUseCase(IPesquisaRepository pesquisaRepository) : ICr
 {
     public async Task<CreatePesquisaResponse> ExecuteAsync(CreatePesquisaRequest request)
     {
-        var pesquisa = new Domain.Pesquisa.Entities.Pesquisa
-            { Codigo = request.Codigo, Inicio = request.Inicio, Fim = request.Fim };
+        var pesquisa = new Domain.Pesquisa.Entities.Pesquisa(request.Codigo, request.Inicio, request.Fim);
         await pesquisaRepository.CreateAsync(pesquisa);
         return new CreatePesquisaResponse(pesquisa.Codigo, pesquisa.Inicio, pesquisa.Fim);
     }
