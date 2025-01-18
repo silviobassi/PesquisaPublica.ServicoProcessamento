@@ -10,7 +10,8 @@ public class PesquisaRepository(IMongoContext context) : IPesquisaRepository
 {
     public async Task CreateAsync(Pesquisa pesquisa)
     {
-        pesquisa.Id = ObjectId.GenerateNewId().ToString();
+        var idPesquisa = ObjectId.GenerateNewId().ToString();
+        pesquisa.ObterId(idPesquisa);
         await context.Pesquisas.InsertOneAsync(pesquisa);
     }
 
@@ -28,9 +29,9 @@ public class PesquisaRepository(IMongoContext context) : IPesquisaRepository
             .Set(p => p.Codigo, pesquisa.Codigo)
             .Set(p => p.Inicio, pesquisa.Inicio)
             .Set(p => p.Fim, pesquisa.Fim);
-        
+
         var updateResult = await context.Pesquisas.UpdateOneAsync(filter, update);
-        
+
         return (updateResult.MatchedCount, updateResult.ModifiedCount);
     }
 
@@ -39,7 +40,7 @@ public class PesquisaRepository(IMongoContext context) : IPesquisaRepository
         var filter = Builders<Pesquisa>.Filter.Eq(p => p.Id, idPesquisa);
 
         var deleteResult = await context.Pesquisas.DeleteOneAsync(filter);
-        
+
         return deleteResult.DeletedCount;
     }
 }

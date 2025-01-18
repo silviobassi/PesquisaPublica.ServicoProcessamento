@@ -1,15 +1,18 @@
 ﻿namespace ServicoProcessamento.Domain.Pesquisa.Entities;
 
-public sealed class Pesquisa
+public sealed class Pesquisa(string codigo, DateTime inicio, DateTime fim)
 {
-    public string Id { get; set; } = string.Empty;
-    public string Codigo { get; init; } = string.Empty;
+    public string Id { get; private set; } = string.Empty;
+    public string Codigo { get; private set; } = codigo;
 
     // alterar para DateTimeOffset
-    public DateTime Inicio { get; init; }
-    public DateTime Fim { get; init; }
+    public DateTime Inicio { get; private set; } = inicio;
+    public DateTime Fim { get; private set; } = fim;
     public bool Ativa { get; private set; } = true;
-    public bool Expirada => DateTime.Now > Fim;
+    
+    public void ObterId(string id) => Id = id;
+
+    private bool Expirada => DateTime.Now > Fim;
     public List<Pergunta>? Perguntas { get; init; } = [];
 
     public void Desativar() => Ativa = false;

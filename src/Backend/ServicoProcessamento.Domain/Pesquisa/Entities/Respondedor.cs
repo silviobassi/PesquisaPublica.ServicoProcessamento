@@ -1,9 +1,11 @@
 ﻿namespace ServicoProcessamento.Domain.Pesquisa.Entities;
 
-public class Respondedor
+public sealed class Respondedor(string id, string nome, string email, int idade)
 {
-    public string Id { get; set; } = string.Empty;
-    public string Nome { get; init; } = string.Empty;
-    public string Email { get; init; } = string.Empty;
-    public int Idade { get; init; }
+    public string Id { get; private set; } = id;
+    public string Nome { get; private set; } = nome;
+    public string Email { get; private set; } = email;
+    public int Idade { get; private set; } = idade;
+
+    public void ObterId(string id) => Id = id;
 }
