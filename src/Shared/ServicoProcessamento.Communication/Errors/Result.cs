@@ -1,4 +1,6 @@
-﻿namespace ServicoProcessamento.Communication.Errors;
+﻿using Microsoft.AspNetCore.Mvc;
+
+namespace ServicoProcessamento.Communication.Errors;
 
 public class Result
 {
@@ -19,7 +21,8 @@ public class Result
     public static implicit operator Result(AppError error) => Failure(error);
     public bool IsErrorType(ErrorType errorType) => Error?.ErrorType == errorType;
 
-    public T Match<T>(Func<T> onSuccess, Func<AppError, T> onFailure) => IsSuccess ? onSuccess() : onFailure(Error!);
+    public IActionResult Match(Func<IActionResult> onSuccess, Func<AppError, IActionResult> onFailure) =>
+        IsSuccess ? onSuccess() : onFailure(Error!);
 
     public override string ToString() => IsSuccess ? "Success" : $"Failure: {Error}";
 }
