@@ -3,7 +3,6 @@ using ServicoProcessamento.Application.Pesquisa.AtualizarPesquisa;
 using ServicoProcessamento.Application.Pesquisa.CreatePesquisa;
 using ServicoProcessamento.Application.Pesquisa.ObterPesquisaPorId;
 using ServicoProcessamento.Application.Pesquisa.RemoverPesquisa;
-using ServicoProcessamento.Communication.Errors;
 using ServicoProcessamento.Communication.Requests;
 using ServicoProcessamento.Communication.Responses;
 
@@ -30,21 +29,17 @@ public class PesquisasController : ServicoProcessamentoBaseController
     }
 
     [HttpPatch("atualizar")]
-    public async Task<IActionResult> AtualizarPesquisaAsync([FromServices] IAtualizarPesquisaUseCase useCase,
+    public async Task<IActionResult> AtualizarPesquisaAsync(
+        [FromServices] IAtualizarPesquisaUseCase useCase,
         [FromBody] AtualizarPesquisaRequest request)
     {
         var result = await useCase.ExecuteAsync(request);
-        
-        return result.Match<IActionResult>(
-            Ok,
-            error => error.ErrorType switch
-            {
-                ErrorType.BusinessRule => BadRequest(error),
-                ErrorType.ConflictRule => Conflict(error),
-                ErrorType.ValidationRule => BadRequest(error.GetErrorsMessage()),
-                _ => StatusCode(StatusCodes.Status500InternalServerError, error)
-            }
-        );
+
+        if (!result.IsFailure) return Ok();
+        // Configura o erro no contexto para o middleware tratar
+        HttpContext.Items["AppError"] = result.Error!;
+        return new EmptyResult(); // O middleware assume o controle da resposta
+
     }
 
     [HttpDelete("{idPesquisa}/remover")]

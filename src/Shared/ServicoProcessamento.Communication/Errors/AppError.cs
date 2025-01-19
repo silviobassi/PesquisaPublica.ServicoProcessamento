@@ -8,7 +8,7 @@ public abstract class AppError(string detail, ErrorType errorType, string errorC
     public ErrorType ErrorType { get; } = errorType;
     public string ErrorCodeName { get; } = errorCodeName;
 
-    public abstract List<string> GetErrorsMessage();
+    public abstract List<string?> GetErrorsMessage();
 
     public abstract HttpStatusCode GetHttpStatusCode();
 }

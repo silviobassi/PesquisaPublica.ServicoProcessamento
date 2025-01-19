@@ -3,6 +3,8 @@
 public class Result
 {
     public bool IsSuccess { get; }
+
+    public bool IsFailure => !IsSuccess;
     public AppError? Error { get; }
 
     protected Result(bool isSuccess, AppError? error)
@@ -11,20 +13,15 @@ public class Result
         Error = error;
     }
 
-    public static Result Success() => new Result(true, null);
-    public static Result Failure(AppError? error) => new Result(false, error);
+    public static Result Success() => new(true, null);
+    public static Result Failure(AppError? error) => new(false, error);
 
     public static implicit operator Result(AppError error) => Failure(error);
     public bool IsErrorType(ErrorType errorType) => Error?.ErrorType == errorType;
 
-    public T Match<T>(Func<T> onSuccess, Func<AppError, T> onFailure)
-    {
-        return IsSuccess ? onSuccess() : onFailure(Error!);
-    }
-    public override string ToString()
-    {
-        return IsSuccess ? "Success" : $"Failure: {Error}";
-    }
+    public T Match<T>(Func<T> onSuccess, Func<AppError, T> onFailure) => IsSuccess ? onSuccess() : onFailure(Error!);
+
+    public override string ToString() => IsSuccess ? "Success" : $"Failure: {Error}";
 }
 
 public class Result<T> : Result
@@ -46,8 +43,5 @@ public class Result<T> : Result
     // Operador implícito para erro (de AppError para Result<T>)
     public static implicit operator Result<T?>(AppError error) => Failure(error);
 
-    public override string ToString()
-    {
-        return IsSuccess ? $"Success: {Value}" : $"Failure: {Error}";
-    }
+    public override string ToString() => IsSuccess ? $"Success: {Value}" : $"Failure: {Error}";
 }

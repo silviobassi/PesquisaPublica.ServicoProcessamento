@@ -1,3 +1,4 @@
+using ServicoProcessamento.Api.Middlewares;
 using ServicoProcessamento.Application;
 using ServicoProcessamento.Infrastructure;
 using ServicoProcessamento.Infrastructure.Data.Migrations;
@@ -24,6 +25,7 @@ if (app.Environment.IsDevelopment())
     app.MapOpenApi();
 }
 
+app.UseMiddleware<GlobalErrorHandlingMiddleware>();
 app.UseHttpsRedirection();
 
 app.MapControllers();
