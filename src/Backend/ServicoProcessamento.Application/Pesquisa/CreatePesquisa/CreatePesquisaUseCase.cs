@@ -11,6 +11,6 @@ public class CreatePesquisaUseCase(IPesquisaRepository pesquisaRepository) : ICr
     {
         var pesquisa = new Domain.Pesquisa.Entities.Pesquisa(request.Codigo, request.Inicio, request.Fim);
         await pesquisaRepository.CreateAsync(pesquisa);
-        return new CreatePesquisaResponse(pesquisa.Codigo, pesquisa.Inicio, pesquisa.Fim);
+        return new CreatePesquisaResponse(pesquisa.Id, pesquisa.Codigo, pesquisa.Inicio, pesquisa.Fim);
     }
 }

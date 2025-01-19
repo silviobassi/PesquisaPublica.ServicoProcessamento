@@ -2,7 +2,7 @@ POST {{servico_processamento}}/pesquisas/criar
 Content-Type: application/json
 
 {
-  "codigo": "579",
+  "codigo": "582",
   "inicio": "2025-01-14T14:49:34",
   "fim": "2025-01-17T00:00:00"
 }
@@ -16,7 +16,7 @@ Content-Type: application/json
 
 {
   "id": "678c708dfc3df543b9bd9a1f",
-  "codigo": "",
+  "codigo": "581",
   "inicio": "2025-01-22T08:00:00",
   "fim": "2025-01-26T00:00:00"
 }
