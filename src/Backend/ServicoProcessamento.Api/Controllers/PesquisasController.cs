@@ -3,6 +3,7 @@ using ServicoProcessamento.Application.Pesquisa.AtualizarPesquisa;
 using ServicoProcessamento.Application.Pesquisa.CreatePesquisa;
 using ServicoProcessamento.Application.Pesquisa.ObterPesquisaPorId;
 using ServicoProcessamento.Application.Pesquisa.RemoverPesquisa;
+using ServicoProcessamento.Communication.Errors;
 using ServicoProcessamento.Communication.Requests;
 using ServicoProcessamento.Communication.Responses;
 
@@ -15,8 +16,8 @@ public class PesquisasController : ServicoProcessamentoBaseController
     public async Task<IActionResult> CreatePesquisaAsync([FromServices] ICreatePesquisaUseCase useCase,
         [FromBody] CreatePesquisaRequest request)
     {
-        var response = await useCase.ExecuteAsync(request);
-        return Created(string.Empty, response);
+        var result = await useCase.ExecuteAsync(request);
+        return Created(string.Empty, result.Value);
     }
 
     [HttpGet("{idPesquisa}/obter")]
@@ -32,8 +33,17 @@ public class PesquisasController : ServicoProcessamentoBaseController
     public async Task<IActionResult> AtualizarPesquisaAsync([FromServices] IAtualizarPesquisaUseCase useCase,
         [FromBody] AtualizarPesquisaRequest request)
     {
-        await useCase.ExecuteAsync(request);
-        return Ok();
+        var result = await useCase.ExecuteAsync(request);
+        
+        return result.Match<IActionResult>(
+            Ok,
+            error => error.ErrorType switch
+            {
+                ErrorType.BusinessRule => BadRequest(error),
+                ErrorType.Validation => Conflict(error),
+                _ => StatusCode(StatusCodes.Status500InternalServerError, error)
+            }
+        );
     }
 
     [HttpDelete("{idPesquisa}/remover")]

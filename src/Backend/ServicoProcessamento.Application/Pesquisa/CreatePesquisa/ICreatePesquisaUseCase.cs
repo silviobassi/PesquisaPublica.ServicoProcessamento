@@ -1,9 +1,10 @@
-﻿using ServicoProcessamento.Communication.Requests;
+﻿using ServicoProcessamento.Communication.Errors;
+using ServicoProcessamento.Communication.Requests;
 using ServicoProcessamento.Communication.Responses;
 
 namespace ServicoProcessamento.Application.Pesquisa.CreatePesquisa;
 
 public interface ICreatePesquisaUseCase
 {
-    Task<CreatePesquisaResponse> ExecuteAsync(CreatePesquisaRequest request);
+    Task<Result<CreatePesquisaResponse>> ExecuteAsync(CreatePesquisaRequest request);
 }
