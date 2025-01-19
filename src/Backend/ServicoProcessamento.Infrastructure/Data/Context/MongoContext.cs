@@ -1,5 +1,6 @@
 ﻿using MongoDB.Driver;
 using ServicoProcessamento.Domain.Pesquisa.Entities;
+using ServicoProcessamento.Domain.Respondedor.Entities;
 
 namespace ServicoProcessamento.Infrastructure.Data.Context;
 

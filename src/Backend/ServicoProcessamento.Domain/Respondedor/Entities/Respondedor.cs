@@ -1,4 +1,4 @@
-﻿namespace ServicoProcessamento.Domain.Pesquisa.Entities;
+﻿namespace ServicoProcessamento.Domain.Respondedor.Entities;
 
 public sealed class Respondedor(string id, string nome, string email, int idade)
 {
