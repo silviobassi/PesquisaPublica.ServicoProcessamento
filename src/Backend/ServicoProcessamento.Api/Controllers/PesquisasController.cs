@@ -40,7 +40,8 @@ public class PesquisasController : ServicoProcessamentoBaseController
             error => error.ErrorType switch
             {
                 ErrorType.BusinessRule => BadRequest(error),
-                ErrorType.Validation => Conflict(error),
+                ErrorType.ConflictRule => Conflict(error),
+                ErrorType.ValidationRule => BadRequest(error.GetErrorsMessage()),
                 _ => StatusCode(StatusCodes.Status500InternalServerError, error)
             }
         );

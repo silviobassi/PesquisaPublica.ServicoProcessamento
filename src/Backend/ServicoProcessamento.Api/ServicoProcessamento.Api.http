@@ -15,8 +15,8 @@ PATCH {{servico_processamento}}/pesquisas/atualizar
 Content-Type: application/json
 
 {
-  "id": "678b2707076885ec6446f631",
-  "codigo": "601",
+  "id": "678c708dfc3df543b9bd9a1",
+  "codigo": "580",
   "inicio": "2025-01-22T08:00:00",
   "fim": "2025-01-26T00:00:00"
 }

@@ -3,7 +3,7 @@
 namespace ServicoProcessamento.Communication.Errors;
 
 public class ValidacaoError(List<string> errorsMessage)
-    : AppError("Erro de validação", ErrorType.Validation, nameof(ValidacaoError))
+    : AppError("Erro de validação", ErrorType.ValidationRule, nameof(ValidacaoError))
 {
     public override List<string> GetErrorsMessage() => errorsMessage;
     
