@@ -6,8 +6,8 @@ public sealed class Pesquisa(string codigo, DateTime inicio, DateTime fim)
     public string Codigo { get; private set; } = codigo;
 
     // alterar para DateTimeOffset
-    public DateTime Inicio { get; private set; } = inicio;
-    public DateTime Fim { get; private set; } = fim;
+    public DateTimeOffset Inicio { get; private set; } = inicio;
+    public DateTimeOffset Fim { get; private set; } = fim;
     public bool Ativa { get; private set; }
     
     public void ObterId(string id) => Id = id;

@@ -2,13 +2,13 @@ POST {{servico_processamento}}/pesquisas/criar
 Content-Type: application/json
 
 {
-  "codigo": "582",
+  "codigo": "583",
   "inicio": "2025-01-14T14:49:34",
   "fim": "2025-01-17T00:00:00"
 }
 
 ###
-GET {{servico_processamento}}/pesquisas/678b1c055c58a95301211d2c/obter
+GET {{servico_processamento}}/pesquisas/678c9e3dce7f172eaf33b846/obter
 
 ###
 PATCH {{servico_processamento}}/pesquisas/atualizar
