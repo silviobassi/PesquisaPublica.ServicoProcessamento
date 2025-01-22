@@ -1,4 +1,5 @@
-﻿using ServicoProcessamento.Application.Extensions;
+﻿using E7.EasyResult;
+using ServicoProcessamento.Application.Extensions;
 using ServicoProcessamento.Communication.Errors;
 using ServicoProcessamento.Communication.Requests;
 using ServicoProcessamento.Domain.Pesquisa.Repositories;
@@ -33,7 +34,7 @@ public class AtualizarPesquisaUseCase(IPesquisaRepository pesquisaRepository) : 
 
         // Incluir dentro de Objeto
         return result.IsValid.IsFalse()
-            ? new ValidacaoError(result.Errors.Select(error => error.ErrorMessage).Distinct().ToList())
+            ? new ValidacaoError(result.Errors.Select(error => error.ErrorMessage).Distinct().ToList()!)
             : Result.Success();
     }
 }
