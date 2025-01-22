@@ -7,24 +7,17 @@
     </PropertyGroup>
 
     <ItemGroup>
-      <ProjectReference Include="..\..\Shared\ServicoProcessamento.Communication\ServicoProcessamento.Communication.csproj" />
-      <ProjectReference Include="..\ServicoProcessamento.Domain\ServicoProcessamento.Domain.csproj" />
+        <ProjectReference Include="..\..\Shared\ServicoProcessamento.Communication\ServicoProcessamento.Communication.csproj"/>
+        <ProjectReference Include="..\ServicoProcessamento.Domain\ServicoProcessamento.Domain.csproj"/>
     </ItemGroup>
 
     <ItemGroup>
-      <Reference Include="Microsoft.Extensions.DependencyInjection.Abstractions">
-        <HintPath>C:\Program Files\dotnet\shared\Microsoft.AspNetCore.App\9.0.0\Microsoft.Extensions.DependencyInjection.Abstractions.dll</HintPath>
-      </Reference>
+        <PackageReference Include="FluentValidation" Version="11.11.0"/>
+        <PackageReference Include="Microsoft.Extensions.DependencyInjection.Abstractions" Version="9.0.0"/>
     </ItemGroup>
 
     <ItemGroup>
-      <PackageReference Include="FluentValidation" Version="11.11.0" />
-      <PackageReference Include="Microsoft.Extensions.DependencyInjection.Abstractions" Version="9.0.0" />
-      <PackageReference Include="OneOf" Version="3.0.271" />
-    </ItemGroup>
-
-    <ItemGroup>
-      <Folder Include="Errors\" />
+        <Folder Include="Errors\"/>
     </ItemGroup>
 
 </Project>
