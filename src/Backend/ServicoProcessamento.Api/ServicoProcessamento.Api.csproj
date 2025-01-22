@@ -1,9 +1,10 @@
-<Project Sdk="Microsoft.NET.Sdk.Web">
+﻿<Project Sdk="Microsoft.NET.Sdk.Web">
 
     <PropertyGroup>
         <TargetFramework>net9.0</TargetFramework>
         <Nullable>enable</Nullable>
         <ImplicitUsings>enable</ImplicitUsings>
+        <UserSecretsId>76b65ea8-1900-445f-8e8c-da6891d3d91e</UserSecretsId>
     </PropertyGroup>
 
     <ItemGroup>
@@ -11,9 +12,9 @@
     </ItemGroup>
 
     <ItemGroup>
-      <ProjectReference Include="..\..\Shared\ServicoProcessamento.Communication\ServicoProcessamento.Communication.csproj" />
-      <ProjectReference Include="..\ServicoProcessamento.Application\ServicoProcessamento.Application.csproj" />
-      <ProjectReference Include="..\ServicoProcessamento.Infrastructure\ServicoProcessamento.Infrastructure.csproj" />
+        <ProjectReference Include="..\..\Shared\ServicoProcessamento.Communication\ServicoProcessamento.Communication.csproj"/>
+        <ProjectReference Include="..\ServicoProcessamento.Application\ServicoProcessamento.Application.csproj"/>
+        <ProjectReference Include="..\ServicoProcessamento.Infrastructure\ServicoProcessamento.Infrastructure.csproj"/>
     </ItemGroup>
 
 </Project>
