@@ -1,4 +1,5 @@
-﻿using Microsoft.AspNetCore.Mvc;
+﻿using E7.EasyResult;
+using Microsoft.AspNetCore.Mvc;
 using ServicoProcessamento.Application.Pesquisa.AtualizarPesquisa;
 using ServicoProcessamento.Application.Pesquisa.CreatePesquisa;
 using ServicoProcessamento.Application.Pesquisa.ObterPesquisaPorId;
@@ -34,12 +35,13 @@ public class PesquisasController : ServicoProcessamentoBaseController
         [FromBody] AtualizarPesquisaRequest request)
     {
         var result = await useCase.ExecuteAsync(request);
-
-        if (!result.IsFailure) return Ok();
-        // Configura o erro no contexto para o middleware tratar
-        HttpContext.Items["AppError"] = result.Error!;
-        return new EmptyResult(); // O middleware assume o controle da resposta
-
+        return result.Match<IActionResult>(
+            Ok,
+            error =>
+            {
+                HttpContext.Items["AppError"] = error;
+                return new EmptyResult();
+            });
     }
 
     [HttpDelete("{idPesquisa}/remover")]

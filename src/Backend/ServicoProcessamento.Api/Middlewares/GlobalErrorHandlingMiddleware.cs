@@ -1,5 +1,5 @@
 ﻿using System.Net;
-using ServicoProcessamento.Communication.Errors;
+using E7.EasyResult.Errors;
 
 namespace ServicoProcessamento.Api.Middlewares;
 

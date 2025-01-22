@@ -1,4 +1,4 @@
-using ServicoProcessamento.Communication.Errors;
+using E7.EasyResult;
 using ServicoProcessamento.Communication.Requests;
 
 namespace ServicoProcessamento.Application.Pesquisa.AtualizarPesquisa;

@@ -1,4 +1,5 @@
 ﻿using System.Net;
+using E7.EasyResult.Errors;
 
 namespace ServicoProcessamento.Communication.Errors;
 

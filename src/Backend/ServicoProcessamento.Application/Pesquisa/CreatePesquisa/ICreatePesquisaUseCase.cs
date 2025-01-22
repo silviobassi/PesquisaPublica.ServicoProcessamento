@@ -1,4 +1,4 @@
-﻿using ServicoProcessamento.Communication.Errors;
+﻿using E7.EasyResult;
 using ServicoProcessamento.Communication.Requests;
 using ServicoProcessamento.Communication.Responses;
 
