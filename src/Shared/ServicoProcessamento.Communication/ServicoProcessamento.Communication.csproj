@@ -7,9 +7,7 @@
     </PropertyGroup>
 
     <ItemGroup>
-      <Reference Include="Microsoft.AspNetCore.Mvc.Abstractions">
-        <HintPath>C:\Program Files\dotnet\shared\Microsoft.AspNetCore.App\9.0.1\Microsoft.AspNetCore.Mvc.Abstractions.dll</HintPath>
-      </Reference>
+        <PackageReference Include="E7.EasyResult" Version="1.0.68"/>
     </ItemGroup>
 
 </Project>
