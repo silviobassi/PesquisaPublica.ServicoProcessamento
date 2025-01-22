@@ -7,8 +7,6 @@ on:
     paths-ignore:
       - 'README.md'
       - '.gitignore'
-      - '.github/**'
-      - '.github/workflows/**'
       - 'domain.puml'
       - 'src/Backend/ServicoProcessamento.Api/appsettings.Development.json'
       - 'src/Backend/ServicoProcessamento.Api/appsettings.json'
@@ -54,17 +52,17 @@ jobs:
         run: |
           dotnet tool install --global dotnet-sonarscanner
 
-      - name: ⬇️ Download Coverage Report
-        uses: actions/download-artifact@v3
-        with:
-          name: coverage-report
+#      - name: ⬇️ Download Coverage Report
+#        uses: actions/download-artifact@v3
+#        with:
+#        name: coverage-report
 
       - name: ▶️ Begin Sonar Cloud Scan
         run: |
           dotnet sonarscanner begin /k:"silviobassi_PesquisaPublica.ServicoProcessamento" \
             /o:"silviobassi" \
             /d:sonar.token="${{ secrets.SONAR_TOKEN }}" \
-            /d:sonar.cs.vscoveragexml.reportsPaths="coverage.xml"
+#            /d:sonar.cs.vscoveragexml.reportsPaths="coverage.xml"
 
       - name: 🏗️ Building 
         run: dotnet build --no-incremental
