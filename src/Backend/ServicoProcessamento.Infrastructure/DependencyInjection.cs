@@ -28,13 +28,8 @@ public static class DependencyInjection
     {
         services.AddSingleton<IMongoClient, MongoClient>(_ =>
         {
-            var mongoMode = configuration.GetValue<bool>("MongoLocal");
             var connectionMongoDbLocal = configuration.GetConnectionString("MongoDbLocal");
-            var connectionMongoDbCluster = configuration.GetConnectionString("MongoDbCluster");
-
-            var connectionString = mongoMode ? connectionMongoDbLocal : connectionMongoDbCluster;
-
-            return new MongoClient(connectionString);
+            return new MongoClient(connectionMongoDbLocal);
         });
 
         services.AddSingleton<IMongoContext, MongoContext>();
