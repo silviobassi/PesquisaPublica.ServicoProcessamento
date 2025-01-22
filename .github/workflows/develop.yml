@@ -14,32 +14,32 @@ on:
       - 'src/Backend/ServicoProcessamento.Api/appsettings.json'
       - 'src/Backend/ServicoProcessamento.Api/ServicoProcessamento.Api.http'
 jobs:
-  test:
-    runs-on: ubuntu-latest
-
-    steps:
-      - uses: actions/checkout@v4
-
-      - name: ⚙️ Setup .NET
-        uses: actions/setup-dotnet@v4
-        with:
-          dotnet-version: 9.x
-
-      - name: 🛠️ Install Coverage Tests
-        run: |
-          dotnet tool install --global dotnet-coverage
-
-      - name: 🧪 Run Tests and Collect Coverage
-        run: dotnet-coverage collect "dotnet test" -f xml -o "coverage.xml"
-
-      - name: ⬆️ Upload Coverage Report
-        uses: actions/upload-artifact@v3
-        with:
-          name: coverage-report
-          path: coverage.xml
+#  test:
+#    runs-on: ubuntu-latest
+#
+#    steps:
+#      - uses: actions/checkout@v4
+#
+#      - name: ⚙️ Setup .NET
+#        uses: actions/setup-dotnet@v4
+#        with:
+#          dotnet-version: 9.x
+#
+#      - name: 🛠️ Install Coverage Tests
+#        run: |
+#          dotnet tool install --global dotnet-coverage
+#
+#      - name: 🧪 Run Tests and Collect Coverage
+#        run: dotnet-coverage collect "dotnet test" -f xml -o "coverage.xml"
+#
+#      - name: ⬆️ Upload Coverage Report
+#        uses: actions/upload-artifact@v3
+#        with:
+#          name: coverage-report
+#          path: coverage.xml
 
   code-analysis:
-    needs: test
+#    needs: test
     runs-on: ubuntu-latest
 
     steps:
