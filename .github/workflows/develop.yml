@@ -48,6 +48,14 @@ jobs:
         with:
           dotnet-version: 9.x
 
+      - name: ⚙️ Configure GitHub Packages feed
+        run: |
+          dotnet nuget add source \
+            --name GitHubPackages \
+            --username ${{ github.actor }} \
+            --password ${{ secrets.GITHUB_TOKEN }} \
+            https://nuget.pkg.github.com/silviobassi/index.json
+            
       - name: 🛠️ Install Sonar Scanner
         run: |
           dotnet tool install --global dotnet-sonarscanner
@@ -64,7 +72,7 @@ jobs:
             /d:sonar.token="${{ secrets.SONAR_TOKEN }}" \
 #            /d:sonar.cs.vscoveragexml.reportsPaths="coverage.xml"
 
-      - name: 🏗️ Building 
+      - name: 🏗️ Restore and Building 
         run: |
           dotnet restore
           dotnet build --no-incremental
