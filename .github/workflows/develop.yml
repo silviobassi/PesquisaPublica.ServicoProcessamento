@@ -54,6 +54,8 @@ jobs:
             --name GitHubPackages \
             --username ${{ github.actor }} \
             --password ${{ secrets.GITHUB_TOKEN }} \
+#          Password encryption is not supported on .NET Core for this platform (Ubuntu) only Windows
+            --store-password-in-clear-text \ 
             https://nuget.pkg.github.com/silviobassi/index.json
             
       - name: 🛠️ Install Sonar Scanner
