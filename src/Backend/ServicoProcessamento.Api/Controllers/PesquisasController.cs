@@ -17,7 +17,13 @@ public class PesquisasController : ServicoProcessamentoBaseController
         [FromBody] CreatePesquisaRequest request)
     {
         var result = await useCase.ExecuteAsync(request);
-        return Created(string.Empty, result.Value);
+        return result.Match<IActionResult>(
+            () => Created(string.Empty, result.Value),
+            error =>
+            {
+                HttpContext.Items["AppError"] = error;
+                return new EmptyResult();
+            });
     }
 
     [HttpGet("{idPesquisa}/obter")]
