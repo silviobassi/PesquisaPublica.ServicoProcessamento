@@ -1,4 +1,5 @@
 ﻿using E7.EasyResult;
+using E7.EasyResult.Errors;
 using ServicoProcessamento.Application.Extensions;
 using ServicoProcessamento.Communication.Errors;
 using ServicoProcessamento.Communication.Requests;
@@ -11,8 +12,8 @@ public class AtualizarPesquisaUseCase(IPesquisaRepository pesquisaRepository) : 
     public async Task<Result> ExecuteAsync(AtualizarPesquisaRequest request)
     {
         var result = await ValidateAsync(request);
-        
-        if (result.Error is not null) return result.Error;
+
+        if (result.IsFailure) return Result.Failure(result.Error);
 
         var pesquisa = new Domain.Pesquisa.Entities.Pesquisa(request.Codigo, request.Inicio, request.Fim);
 
@@ -22,19 +23,16 @@ public class AtualizarPesquisaUseCase(IPesquisaRepository pesquisaRepository) : 
 
         if (matchedCount == 0) return new PesquisaNaoEncontradaError();
 
-        if (modifiedCount == 0) return new NenhumaAlteracaoRealizadaError();
-
-        return Result.Success();
+        return modifiedCount == 0 ? new NenhumaAlteracaoRealizadaError() : Result.Success();
     }
 
     private static async Task<Result> ValidateAsync(AtualizarPesquisaRequest request)
     {
         var validator = new AtualizarPesquisaValidator();
-        var result = await validator.ValidateAsync(request);
+        var response = await validator.ValidateAsync(request);
 
-        // Incluir dentro de Objeto
-        return result.IsValid.IsFalse()
-            ? new ValidacaoError(result.Errors.Select(error => error.ErrorMessage).Distinct().ToList()!)
+        return response.IsValid.IsFalse()
+            ? new InvalidFieldsError(response.Errors.Select(error => error.ErrorMessage).Distinct().ToList()!)
             : Result.Success();
     }
 }
