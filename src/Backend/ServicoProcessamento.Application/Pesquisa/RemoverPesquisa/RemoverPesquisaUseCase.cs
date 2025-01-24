@@ -1,20 +1,23 @@
-﻿using ServicoProcessamento.Domain.Pesquisa.Repositories;
+﻿using E7.EasyResult;
+using ServicoProcessamento.Communication.Errors;
+using ServicoProcessamento.Domain.Pesquisa.Repositories;
 
 namespace ServicoProcessamento.Application.Pesquisa.RemoverPesquisa;
 
 public class RemoverPesquisaUseCase(IPesquisaRepository pesquisaRepository) : IRemoverPesquisaUseCase
 {
-    public async Task ExecuteAsync(string idPesquisa)
+    public async Task<Result> ExecuteAsync(string idPesquisa)
     {
         // Se a pesquisa já estiver ativa e com respostas, não deve ser possível excluí-la
 
         var pesquisa = await pesquisaRepository.ObterPesquisaPorIdAsync(idPesquisa);
 
-        if (pesquisa.EstaSendoRespondida)
-            throw new ArgumentException("A Pesquisa não pode ser removida pois já está sendo respondida");
-        
-        var deleteCount = await pesquisaRepository.RemoverPesquisaAsync(idPesquisa);
+        if (pesquisa is null) return new PesquisaNaoEncontradaError();
 
-        if (deleteCount == 0) throw new ArgumentException("A Pesquisa não foi removida");
+        if (pesquisa.EstaSendoRespondida) return new PesquisaEstaSendoRespondidaError();
+
+        var pesquisaDeleted = await pesquisaRepository.RemoverPesquisaAsync(idPesquisa);
+
+        return pesquisaDeleted is null ? new PesquisaNaoEncontradaError() : Result.Success();
     }
 }
