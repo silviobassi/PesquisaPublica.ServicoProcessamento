@@ -2,27 +2,27 @@ POST {{servico_processamento}}/pesquisas/criar
 Content-Type: application/json
 
 {
-  "codigo": "583",
-  "inicio": "2025-01-14T14:49:34",
-  "fim": "2025-01-17T00:00:00"
+  "codigo": "PQ2025A",
+  "inicio": "2025-01-23T14:00:00",
+  "fim": "2025-01-26T17:00:00"
 }
 
 ###
-GET {{servico_processamento}}/pesquisas/678c9e3dce7f172eaf33b846/obter
+GET {{servico_processamento}}/pesquisas/6792fe534e69d1d24c4e4e91/obter
 
 ###
 PATCH {{servico_processamento}}/pesquisas/atualizar
 Content-Type: application/json
 
 {
-  "id": "678c708dfc3df543b9bd9a1f",
-  "codigo": "901",
-  "inicio": "2025-01-22T08:00:00",
+  "id": "678c9c5e2f7e582e205ff362",
+  "codigo": "323232",
+  "inicio": "",
   "fim": "2025-01-26T00:00:00"
 }
 
 ###
-DELETE {{servico_processamento}}/pesquisas/678b1c055c58a95301211d2c/remover
+DELETE {{servico_processamento}}/pesquisas/678c708dfc3df543b9bd9a1f/remover
 
 ###
 POST {{servico_processamento}}/pesquisas/criar
