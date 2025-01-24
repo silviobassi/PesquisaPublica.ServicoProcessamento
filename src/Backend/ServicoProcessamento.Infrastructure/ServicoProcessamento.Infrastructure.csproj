@@ -15,7 +15,7 @@
 
     <ItemGroup>
       <ProjectReference Include="..\..\Shared\ServicoProcessamento.Communication\ServicoProcessamento.Communication.csproj" />
-      <ProjectReference Include="..\ServicoProcessamento.Domain\ServicoProcessamento.Domain.csproj" />
+      <ProjectReference Include="..\ServicoProcessamento.Feature\ServicoProcessamento.Feature.csproj" />
     </ItemGroup>
 
 </Project>

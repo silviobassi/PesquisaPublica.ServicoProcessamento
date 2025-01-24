@@ -1,5 +1,5 @@
 using ServicoProcessamento.Api.Middlewares;
-using ServicoProcessamento.Pesquisa;
+using ServicoProcessamento.Feature;
 using ServicoProcessamento.Infrastructure;
 using ServicoProcessamento.Infrastructure.Data.Migrations;
 

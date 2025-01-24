@@ -2,7 +2,7 @@
 using MongoDB.Bson.Serialization;
 using MongoDB.Bson.Serialization.IdGenerators;
 using MongoDB.Bson.Serialization.Serializers;
-using ServicoProcessamento.Domain.Pesquisa.Entities;
+using ServicoProcessamento.Domain.Pesquisa;
 
 namespace ServicoProcessamento.Infrastructure.Data.Migrations;
 

@@ -1,7 +1,6 @@
 ﻿using MongoDB.Bson;
 using MongoDB.Driver;
-using ServicoProcessamento.Domain.Pesquisa.Entities;
-using ServicoProcessamento.Domain.Pesquisa.Repositories;
+using ServicoProcessamento.Domain.Pesquisa;
 using ServicoProcessamento.Infrastructure.Data.Context;
 
 namespace ServicoProcessamento.Infrastructure.Data.Repositories;

@@ -2,7 +2,7 @@
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using MongoDB.Driver;
-using ServicoProcessamento.Domain.Pesquisa.Repositories;
+using ServicoProcessamento.Domain.Pesquisa;
 using ServicoProcessamento.Infrastructure.Consumers;
 using ServicoProcessamento.Infrastructure.Data.Context;
 using ServicoProcessamento.Infrastructure.Data.Repositories;
