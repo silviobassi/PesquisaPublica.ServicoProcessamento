@@ -54,7 +54,13 @@ public class PesquisasController : ServicoProcessamentoBaseController
     public async Task<IActionResult> RemoverPesquisaAsync([FromServices] IRemoverPesquisaUseCase useCase,
         [FromRoute] string idPesquisa)
     {
-        await useCase.ExecuteAsync(idPesquisa);
-        return NoContent();
+        var result = await useCase.ExecuteAsync(idPesquisa);
+        return result.Match<IActionResult>(
+            NoContent,
+            error =>
+            {
+                HttpContext.Items["AppError"] = error;
+                return new EmptyResult();
+            });
     }
 }
