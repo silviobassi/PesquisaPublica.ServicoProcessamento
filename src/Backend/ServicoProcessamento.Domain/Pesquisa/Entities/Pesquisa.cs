@@ -6,7 +6,7 @@
 /// <param name="codigo">O código da pesquisa.</param>
 /// <param name="inicio">A data e hora de início da pesquisa.</param>
 /// <param name="fim">A data e hora de término da pesquisa.</param>
-public sealed class Pesquisa(string codigo, DateTime inicio, DateTime fim)
+public sealed class Pesquisa(string codigo, DateTimeOffset? inicio, DateTimeOffset? fim)
 {
     /// <summary>
     /// Obtém o ID da pesquisa.
@@ -21,12 +21,12 @@ public sealed class Pesquisa(string codigo, DateTime inicio, DateTime fim)
     /// <summary>
     /// Obtém a data e hora de início da pesquisa.
     /// </summary>
-    public DateTimeOffset Inicio { get; private set; } = inicio;
+    public DateTimeOffset? Inicio { get; private set; } = inicio;
 
     /// <summary>
     /// Obtém a data e hora de término da pesquisa.
     /// </summary>
-    public DateTimeOffset Fim { get; private set; } = fim;
+    public DateTimeOffset? Fim { get; private set; } = fim;
 
     /// <summary>
     /// Obtém um valor indicando se a pesquisa está ativa.
