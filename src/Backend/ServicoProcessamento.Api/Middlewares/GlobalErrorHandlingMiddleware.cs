@@ -40,14 +40,14 @@ public class GlobalErrorHandlingMiddleware(RequestDelegate next)
             appError.GetHttpStatusCode(),
             appError.ErrorType,
             appError.ErrorCodeName,
-            appError.GetErrorsMessage()
+            appError.GetErrorsMessage()!
         );
 
         genericResponseError = new GenericResponseError(
             appError.GetHttpStatusCode(),
             appError.ErrorType,
             appError.ErrorCodeName,
-            appError.GetErrorsMessage().FirstOrDefault()
+            appError.GetErrorsMessage().FirstOrDefault()!
         );
     }
 }
@@ -56,12 +56,12 @@ internal sealed record ValidationResponseError(
     HttpStatusCode StatusCode,
     ErrorType ErrorType,
     string ErrorCodeName,
-    List<string?> ErrorsMessages
+    List<string> ErrorsMessages
 );
 
 internal sealed record GenericResponseError(
     HttpStatusCode StatusCode,
     ErrorType ErrorType,
     string ErrorCodeName,
-    string? Message
+    string Message
 );
