@@ -10,7 +10,7 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Backend", "Backend", "{66B9
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ServicoProcessamento.Domain", "src\Backend\ServicoProcessamento.Domain\ServicoProcessamento.Domain.csproj", "{6C414B99-A3F9-484A-8A39-7D58E42B5698}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ServicoProcessamento.Application", "src\Backend\ServicoProcessamento.Application\ServicoProcessamento.Application.csproj", "{BDAA6F6C-E99B-4E11-92C9-19D6491BDE37}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ServicoProcessamento.Pesquisa", "src\Backend\ServicoProcessamento.Pesquisa\ServicoProcessamento.Pesquisa.csproj", "{BDAA6F6C-E99B-4E11-92C9-19D6491BDE37}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Shared", "Shared", "{97972063-2B9E-4BDA-BB16-3B9F79DF25FD}"
 EndProject

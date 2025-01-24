@@ -2,7 +2,7 @@
 using ServicoProcessamento.Communication.Requests;
 using ServicoProcessamento.Communication.Responses;
 
-namespace ServicoProcessamento.Application.Pesquisa.CreatePesquisa;
+namespace ServicoProcessamento.Pesquisa.CreatePesquisa;
 
 public interface ICreatePesquisaUseCase
 {

@@ -2,7 +2,7 @@
 using ServicoProcessamento.Communication.Errors;
 using ServicoProcessamento.Domain.Pesquisa.Repositories;
 
-namespace ServicoProcessamento.Application.Pesquisa.RemoverPesquisa;
+namespace ServicoProcessamento.Pesquisa.RemoverPesquisa;
 
 public class RemoverPesquisaUseCase(IPesquisaRepository pesquisaRepository) : IRemoverPesquisaUseCase
 {

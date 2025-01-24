@@ -1,12 +1,11 @@
 ﻿using E7.EasyResult;
 using E7.EasyResult.Errors;
-using FluentValidation.Results;
-using ServicoProcessamento.Application.Extensions;
 using ServicoProcessamento.Communication.Errors;
 using ServicoProcessamento.Communication.Requests;
 using ServicoProcessamento.Domain.Pesquisa.Repositories;
+using ServicoProcessamento.Pesquisa.Extensions;
 
-namespace ServicoProcessamento.Application.Pesquisa.AtualizarPesquisa;
+namespace ServicoProcessamento.Pesquisa.AtualizarPesquisa;
 
 public class AtualizarPesquisaUseCase(IPesquisaRepository pesquisaRepository) : IAtualizarPesquisaUseCase
 {

@@ -1,12 +1,11 @@
 ﻿using E7.EasyResult;
 using E7.EasyResult.Errors;
-using ServicoProcessamento.Application.Extensions;
-using ServicoProcessamento.Communication.Errors;
 using ServicoProcessamento.Communication.Requests;
 using ServicoProcessamento.Communication.Responses;
 using ServicoProcessamento.Domain.Pesquisa.Repositories;
+using ServicoProcessamento.Pesquisa.Extensions;
 
-namespace ServicoProcessamento.Application.Pesquisa.CreatePesquisa;
+namespace ServicoProcessamento.Pesquisa.CreatePesquisa;
 
 public sealed class CreatePesquisaUseCase(IPesquisaRepository pesquisaRepository) : ICreatePesquisaUseCase
 {

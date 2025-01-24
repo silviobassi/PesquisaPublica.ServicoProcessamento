@@ -1,10 +1,10 @@
 ﻿using Microsoft.Extensions.DependencyInjection;
-using ServicoProcessamento.Application.Pesquisa.AtualizarPesquisa;
-using ServicoProcessamento.Application.Pesquisa.CreatePesquisa;
-using ServicoProcessamento.Application.Pesquisa.ObterPesquisaPorId;
-using ServicoProcessamento.Application.Pesquisa.RemoverPesquisa;
+using ServicoProcessamento.Pesquisa.AtualizarPesquisa;
+using ServicoProcessamento.Pesquisa.CreatePesquisa;
+using ServicoProcessamento.Pesquisa.ObterPesquisaPorId;
+using ServicoProcessamento.Pesquisa.RemoverPesquisa;
 
-namespace ServicoProcessamento.Application;
+namespace ServicoProcessamento.Pesquisa;
 
 public static class DependencyInjection
 {

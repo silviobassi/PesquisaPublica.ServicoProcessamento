@@ -14,7 +14,7 @@
 
     <ItemGroup>
         <ProjectReference Include="..\..\Shared\ServicoProcessamento.Communication\ServicoProcessamento.Communication.csproj"/>
-        <ProjectReference Include="..\ServicoProcessamento.Application\ServicoProcessamento.Application.csproj"/>
+        <ProjectReference Include="..\ServicoProcessamento.Pesquisa\ServicoProcessamento.Pesquisa.csproj" />
         <ProjectReference Include="..\ServicoProcessamento.Infrastructure\ServicoProcessamento.Infrastructure.csproj"/>
     </ItemGroup>
 

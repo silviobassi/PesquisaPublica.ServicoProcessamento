@@ -1,4 +1,4 @@
-﻿namespace ServicoProcessamento.Application.Extensions;
+﻿namespace ServicoProcessamento.Pesquisa.Extensions;
 
 public static class BooleanExtensions
 {

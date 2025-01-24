@@ -1,6 +1,6 @@
 ﻿using ServicoProcessamento.Communication.Responses;
 
-namespace ServicoProcessamento.Application.Pesquisa.ObterPesquisaPorId;
+namespace ServicoProcessamento.Pesquisa.ObterPesquisaPorId;
 
 public interface IObterPesquisaPorIdUseCase
 {

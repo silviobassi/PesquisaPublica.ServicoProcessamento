@@ -1,7 +1,7 @@
 ﻿using ServicoProcessamento.Communication.Responses;
 using ServicoProcessamento.Domain.Pesquisa.Repositories;
 
-namespace ServicoProcessamento.Application.Pesquisa.ObterPesquisaPorId;
+namespace ServicoProcessamento.Pesquisa.ObterPesquisaPorId;
 
 public class ObterPesquisaPorIdUseCase(IPesquisaRepository pesquisaRepository) : IObterPesquisaPorIdUseCase
 {

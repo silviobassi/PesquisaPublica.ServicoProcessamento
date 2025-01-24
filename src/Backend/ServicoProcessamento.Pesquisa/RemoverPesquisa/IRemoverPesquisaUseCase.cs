@@ -1,6 +1,6 @@
 using E7.EasyResult;
 
-namespace ServicoProcessamento.Application.Pesquisa.RemoverPesquisa;
+namespace ServicoProcessamento.Pesquisa.RemoverPesquisa;
 
 public interface IRemoverPesquisaUseCase
 {

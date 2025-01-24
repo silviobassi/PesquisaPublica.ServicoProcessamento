@@ -1,11 +1,11 @@
 ﻿using E7.EasyResult;
 using Microsoft.AspNetCore.Mvc;
-using ServicoProcessamento.Application.Pesquisa.AtualizarPesquisa;
-using ServicoProcessamento.Application.Pesquisa.CreatePesquisa;
-using ServicoProcessamento.Application.Pesquisa.ObterPesquisaPorId;
-using ServicoProcessamento.Application.Pesquisa.RemoverPesquisa;
 using ServicoProcessamento.Communication.Requests;
 using ServicoProcessamento.Communication.Responses;
+using ServicoProcessamento.Pesquisa.AtualizarPesquisa;
+using ServicoProcessamento.Pesquisa.CreatePesquisa;
+using ServicoProcessamento.Pesquisa.ObterPesquisaPorId;
+using ServicoProcessamento.Pesquisa.RemoverPesquisa;
 
 namespace ServicoProcessamento.Api.Controllers;
 

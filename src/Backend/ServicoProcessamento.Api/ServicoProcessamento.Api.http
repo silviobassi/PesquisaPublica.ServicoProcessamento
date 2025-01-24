@@ -2,7 +2,7 @@ POST {{servico_processamento}}/pesquisas/criar
 Content-Type: application/json
 
 {
-  "codigo": "PQ2025A",
+  "codigo": "PQ2025G",
   "inicio": "2025-01-23T14:00:00",
   "fim": "2025-01-26T17:00:00"
 }
