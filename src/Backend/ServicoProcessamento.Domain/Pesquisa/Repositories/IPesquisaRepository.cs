@@ -3,7 +3,7 @@
 public interface IPesquisaRepository
 {
     Task CreateAsync(Entities.Pesquisa pesquisa);
-    Task<Entities.Pesquisa> ObterPesquisaPorIdAsync(string idPesquisa);
-    Task<(long MatchedCount, long ModifiedCount)> AtualizarPesquisaAsync(Entities.Pesquisa pesquisa);
-    Task<long> RemoverPesquisaAsync(string idPesquisa);
+    Task<Entities.Pesquisa?> ObterPesquisaPorIdAsync(string idPesquisa);
+    Task<Entities.Pesquisa?> AtualizarPesquisaAsync(Entities.Pesquisa pesquisa);
+    Task<Entities.Pesquisa?> RemoverPesquisaAsync(string idPesquisa);
 }

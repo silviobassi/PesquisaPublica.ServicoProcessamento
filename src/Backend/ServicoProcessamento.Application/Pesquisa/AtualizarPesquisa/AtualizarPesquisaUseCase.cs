@@ -1,5 +1,6 @@
 ﻿using E7.EasyResult;
 using E7.EasyResult.Errors;
+using FluentValidation.Results;
 using ServicoProcessamento.Application.Extensions;
 using ServicoProcessamento.Communication.Errors;
 using ServicoProcessamento.Communication.Requests;
@@ -15,15 +16,16 @@ public class AtualizarPesquisaUseCase(IPesquisaRepository pesquisaRepository) : 
 
         if (result.IsFailure) return Result.Failure(result.Error);
 
-        var pesquisa = new Domain.Pesquisa.Entities.Pesquisa(request.Codigo, request.Inicio, request.Fim);
+        var pesquisa = new Domain.Pesquisa.Entities.Pesquisa(request.Codigo, request.InicioAsDateTimeOffset,
+            request.FimAsDateTimeOffset);
 
         pesquisa.ObterId(request.Id);
 
-        var (matchedCount, modifiedCount) = await pesquisaRepository.AtualizarPesquisaAsync(pesquisa);
+        pesquisa = await pesquisaRepository.AtualizarPesquisaAsync(pesquisa);
 
-        if (matchedCount == 0) return new PesquisaNaoEncontradaError();
-
-        return modifiedCount == 0 ? new NenhumaAlteracaoRealizadaError() : Result.Success();
+        return pesquisa is null
+            ? new PesquisaNaoEncontradaError()
+            : Result.Success();
     }
 
     private static async Task<Result> ValidateAsync(AtualizarPesquisaRequest request)

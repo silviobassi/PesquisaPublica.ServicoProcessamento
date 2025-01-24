@@ -1,6 +1,5 @@
 ﻿using MongoDB.Bson;
 using MongoDB.Driver;
-using ServicoProcessamento.Communication;
 using ServicoProcessamento.Domain.Pesquisa.Entities;
 using ServicoProcessamento.Domain.Pesquisa.Repositories;
 using ServicoProcessamento.Infrastructure.Data.Context;
@@ -16,13 +15,13 @@ public class PesquisaRepository(IMongoContext context) : IPesquisaRepository
         await context.Pesquisas.InsertOneAsync(pesquisa);
     }
 
-    public async Task<Pesquisa> ObterPesquisaPorIdAsync(string idPesquisa)
+    public async Task<Pesquisa?> ObterPesquisaPorIdAsync(string idPesquisa)
     {
         var filter = Builders<Pesquisa>.Filter.Eq(p => p.Id, idPesquisa);
         return await context.Pesquisas.Find(filter).FirstOrDefaultAsync();
     }
 
-    public async Task<(long MatchedCount, long ModifiedCount)> AtualizarPesquisaAsync(Pesquisa pesquisa)
+    public async Task<Pesquisa?> AtualizarPesquisaAsync(Pesquisa pesquisa)
     {
         var filter = Builders<Pesquisa>.Filter.Eq(p => p.Id, pesquisa.Id);
 
@@ -31,17 +30,15 @@ public class PesquisaRepository(IMongoContext context) : IPesquisaRepository
             .Set(p => p.Inicio, pesquisa.Inicio)
             .Set(p => p.Fim, pesquisa.Fim);
 
-        var updateResult = await context.Pesquisas.UpdateOneAsync(filter, update);
-
-        return (updateResult.MatchedCount, updateResult.ModifiedCount);
+        return await context.Pesquisas.FindOneAndUpdateAsync(filter, update);
     }
 
-    public async Task<long> RemoverPesquisaAsync(string idPesquisa)
+    public async Task<Pesquisa?> RemoverPesquisaAsync(string idPesquisa)
     {
         var filter = Builders<Pesquisa>.Filter.Eq(p => p.Id, idPesquisa);
 
-        var deleteResult = await context.Pesquisas.DeleteOneAsync(filter);
+        var pesquisaDeleted = await context.Pesquisas.FindOneAndDeleteAsync(filter);
 
-        return deleteResult.DeletedCount;
+        return pesquisaDeleted;
     }
 }
