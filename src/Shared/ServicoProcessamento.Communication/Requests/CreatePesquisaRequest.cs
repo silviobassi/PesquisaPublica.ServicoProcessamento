@@ -1,3 +1,16 @@
-﻿namespace ServicoProcessamento.Communication.Requests;
+﻿using System.Globalization;
 
-public record CreatePesquisaRequest(string Codigo, DateTime Inicio, DateTime Fim);
+namespace ServicoProcessamento.Communication.Requests;
+
+public record CreatePesquisaRequest(string Codigo, string Inicio, string Fim)
+{
+    public DateTimeOffset? InicioAsDateTimeOffset =>
+        DateTimeOffset.TryParse(Inicio, CultureInfo.InvariantCulture, DateTimeStyles.None, out var result)
+            ? result
+            : null;
+
+    public DateTimeOffset? FimAsDateTimeOffset =>
+        DateTimeOffset.TryParse(Fim, CultureInfo.InvariantCulture, DateTimeStyles.None, out var result)
+            ? result
+            : null;
+}
