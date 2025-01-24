@@ -1,6 +1,7 @@
 ﻿using E7.EasyResult;
 using E7.EasyResult.Errors;
 using ServicoProcessamento.Application.Extensions;
+using ServicoProcessamento.Communication.Errors;
 using ServicoProcessamento.Communication.Requests;
 using ServicoProcessamento.Communication.Responses;
 using ServicoProcessamento.Domain.Pesquisa.Repositories;
@@ -15,9 +16,10 @@ public sealed class CreatePesquisaUseCase(IPesquisaRepository pesquisaRepository
 
         if (validateResult.IsFailure) return validateResult.Error!;
 
-        var pesquisa = new Domain.Pesquisa.Entities.Pesquisa(request.Codigo, request.Inicio, request.Fim);
+        var pesquisa = new Domain.Pesquisa.Entities.Pesquisa(request.Codigo, request.InicioAsDateTimeOffset,
+            request.FimAsDateTimeOffset);
         await pesquisaRepository.CreateAsync(pesquisa);
-        
+
         return new CreatePesquisaResponse(pesquisa.Id, pesquisa.Codigo, pesquisa.Inicio, pesquisa.Fim);
     }
 
