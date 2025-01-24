@@ -1,6 +1,8 @@
+using E7.EasyResult;
+
 namespace ServicoProcessamento.Application.Pesquisa.RemoverPesquisa;
 
 public interface IRemoverPesquisaUseCase
 {
-    Task ExecuteAsync(string idPesquisa);
+    Task<Result> ExecuteAsync(string idPesquisa);
 }
