@@ -19,4 +19,9 @@
         <Using Include="Xunit"/>
     </ItemGroup>
 
+    <ItemGroup>
+      <ProjectReference Include="..\..\src\Backend\ServicoProcessamento.Feature\ServicoProcessamento.Feature.csproj" />
+      <ProjectReference Include="..\CommonTestUtilities\CommonTestUtilities.csproj" />
+    </ItemGroup>
+
 </Project>
