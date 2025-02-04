@@ -1,6 +1,6 @@
-﻿namespace ServicoProcessamento.Domain.Pesquisa;
+﻿namespace ServicoProcessamento.Domain.Pesquisa.Entities;
 
-public sealed class Alternativa(string id, string descricao)
+public sealed class AlternativaEntity(string id, string descricao)
 {
     public string Id { get; private set; } = id;
     public string Descricao { get; private set; } = descricao;
