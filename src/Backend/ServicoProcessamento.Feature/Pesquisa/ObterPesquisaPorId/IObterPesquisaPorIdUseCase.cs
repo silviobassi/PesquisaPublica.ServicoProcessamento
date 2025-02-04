@@ -1,4 +1,4 @@
-﻿using ServicoProcessamento.Communication.Responses;
+﻿using ServicoProcessamento.Communication.Pesquisa.Responses;
 
 namespace ServicoProcessamento.Feature.Pesquisa.ObterPesquisaPorId;
 

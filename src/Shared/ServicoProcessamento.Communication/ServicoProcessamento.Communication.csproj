@@ -6,8 +6,4 @@
         <Nullable>enable</Nullable>
     </PropertyGroup>
 
-    <ItemGroup>
-        <PackageReference Include="E7.EasyResult" Version="1.0.68"/>
-    </ItemGroup>
-
 </Project>

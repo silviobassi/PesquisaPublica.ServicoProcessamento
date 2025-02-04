@@ -2,13 +2,13 @@ POST {{servico_processamento}}/pesquisas/criar
 Content-Type: application/json
 
 {
-  "codigo": "PQ2025G",
+  "codigo": "BF200",
   "inicio": "2025-01-23T14:00:00",
   "fim": "2025-01-26T17:00:00"
 }
 
 ###
-GET {{servico_processamento}}/pesquisas/6792fe534e69d1d24c4e4e91/obter
+GET {{servico_processamento}}/pesquisas/67a21abcfa2d601b260b466/obter
 
 ###
 PATCH {{servico_processamento}}/pesquisas/atualizar
@@ -16,13 +16,13 @@ Content-Type: application/json
 
 {
   "id": "678c9c5e2f7e582e205ff362",
-  "codigo": "323232",
+  "codigo": "333",
   "inicio": "",
   "fim": "2025-01-26T00:00:00"
 }
 
 ###
-DELETE {{servico_processamento}}/pesquisas/678c708dfc3df543b9bd9a1f/remover
+DELETE {{servico_processamento}}/pesquisas/67a2163aa1020d17c047d2ad/remover
 
 ###
 POST {{servico_processamento}}/pesquisas/criar

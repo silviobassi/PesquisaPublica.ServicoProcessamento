@@ -1,6 +1,8 @@
 ﻿using MongoDB.Driver;
 using ServicoProcessamento.Domain.Pesquisa;
-using ServicoProcessamento.Domain.Respondedor.Domain;
+using ServicoProcessamento.Domain.Pesquisa.Entities;
+using ServicoProcessamento.Domain.Respondedor;
+using ServicoProcessamento.Domain.Respondedor.Entities;
 
 namespace ServicoProcessamento.Infrastructure.Data.Context;
 
@@ -8,11 +10,11 @@ public class MongoContext(IMongoClient client) : IMongoContext
 {
     private IMongoDatabase Db => client.GetDatabase("PesquisaPublicaDb");
 
-    public IMongoCollection<Pesquisa> Pesquisas => Db.GetCollection<Pesquisa>("Pesquisas");
+    public IMongoCollection<PesquisaEntity> Pesquisas => Db.GetCollection<PesquisaEntity>("Pesquisas");
 
-    public IMongoCollection<Pergunta> Perguntas => Db.GetCollection<Pergunta>("Perguntas");
+    public IMongoCollection<PerguntaEntity> Perguntas => Db.GetCollection<PerguntaEntity>("Perguntas");
 
-    public IMongoCollection<Alternativa> Alternativas => Db.GetCollection<Alternativa>("Alternativas");
+    public IMongoCollection<AlternativaEntity> Alternativas => Db.GetCollection<AlternativaEntity>("Alternativas");
 
-    public IMongoCollection<Respondedor> Respondedores => Db.GetCollection<Respondedor>("Respondedores");
+    public IMongoCollection<RespondedorEntity> Respondedores => Db.GetCollection<RespondedorEntity>("Respondedores");
 }

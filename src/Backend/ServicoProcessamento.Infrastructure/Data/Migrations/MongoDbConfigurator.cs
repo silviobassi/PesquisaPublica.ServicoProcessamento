@@ -3,6 +3,7 @@ using MongoDB.Bson.Serialization;
 using MongoDB.Bson.Serialization.IdGenerators;
 using MongoDB.Bson.Serialization.Serializers;
 using ServicoProcessamento.Domain.Pesquisa;
+using ServicoProcessamento.Domain.Pesquisa.Entities;
 
 namespace ServicoProcessamento.Infrastructure.Data.Migrations;
 
@@ -10,7 +11,7 @@ public static class MongoDbConfigurator
 {
     public static void Configure()
     {
-        BsonClassMap.RegisterClassMap<Pergunta>(cm =>
+        BsonClassMap.RegisterClassMap<PerguntaEntity>(cm =>
         {
             cm.AutoMap();
             cm.MapIdMember(p => p.Id);
@@ -18,7 +19,7 @@ public static class MongoDbConfigurator
             cm.MapMember(p => p.Alternativas).SetIsRequired(true);
         });
 
-        BsonClassMap.RegisterClassMap<Pesquisa>(cm =>
+        BsonClassMap.RegisterClassMap<PesquisaEntity>(cm =>
         {
             cm.AutoMap();
             cm.MapIdMember(p => p.Id);

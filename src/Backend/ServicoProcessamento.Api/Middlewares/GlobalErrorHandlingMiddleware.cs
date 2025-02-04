@@ -1,5 +1,5 @@
 ﻿using System.Net;
-using E7.EasyResult.Errors;
+using ServicoProcessamento.Communication.E7.EasyResult.Errors;
 
 namespace ServicoProcessamento.Api.Middlewares;
 
@@ -63,5 +63,5 @@ internal sealed record GenericResponseError(
     HttpStatusCode StatusCode,
     ErrorType ErrorType,
     string ErrorCodeName,
-    string Message
+    object Message
 );

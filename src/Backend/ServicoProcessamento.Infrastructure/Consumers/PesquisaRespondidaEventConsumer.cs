@@ -11,6 +11,6 @@ internal sealed class PesquisaRespondidaEventConsumer(ILogger<PesquisaRespondida
     {
         logger.LogWarning("Recebendo pesquisa...");
         await Task.Delay(10000);
-        logger.LogInformation("Pesquisa recebida com sucesso: {Event}", context.Message);
+        logger.LogInformation("PesquisaEntity recebida com sucesso: {Event}", context.Message);
     }
 }

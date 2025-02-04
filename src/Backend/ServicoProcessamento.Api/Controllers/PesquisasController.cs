@@ -1,7 +1,7 @@
-﻿using E7.EasyResult;
-using Microsoft.AspNetCore.Mvc;
+﻿using Microsoft.AspNetCore.Mvc;
+using ServicoProcessamento.Communication.E7.EasyResult;
 using ServicoProcessamento.Communication.Pesquisa.Requests;
-using ServicoProcessamento.Communication.Responses;
+using ServicoProcessamento.Communication.Pesquisa.Responses;
 using ServicoProcessamento.Feature.Pesquisa.AtualizarPesquisa;
 using ServicoProcessamento.Feature.Pesquisa.CreatePesquisa;
 using ServicoProcessamento.Feature.Pesquisa.ObterPesquisaPorId;
@@ -17,6 +17,7 @@ public class PesquisasController : ServicoProcessamentoBaseController
         [FromBody] CreatePesquisaRequest request)
     {
         var result = await useCase.ExecuteAsync(request);
+        
         return result.Match<IActionResult>(
             () => Created(string.Empty, result.Value),
             error =>

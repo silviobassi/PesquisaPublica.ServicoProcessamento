@@ -1,6 +1,7 @@
-﻿using E7.EasyResult;
+﻿using ServicoProcessamento.Communication.E7.EasyResult;
 using ServicoProcessamento.Communication.Pesquisa.Errors;
 using ServicoProcessamento.Domain.Pesquisa;
+using ServicoProcessamento.Domain.Pesquisa.Repositories;
 
 namespace ServicoProcessamento.Feature.Pesquisa.RemoverPesquisa;
 

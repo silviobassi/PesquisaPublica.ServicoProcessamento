@@ -5,6 +5,7 @@ using ServicoProcessamento.Infrastructure.Data.Migrations;
 
 var builder = WebApplication.CreateBuilder(args);
 
+
 // Add services to the container.
 // Learn more about configuring OpenAPI at https://aka.ms/aspnet/openapi
 builder.Services.AddOpenApi();
@@ -33,3 +34,7 @@ app.MapControllers();
 MongoDbConfigurator.Configure();
 
 await app.RunAsync();
+
+// Configure the app to use MongoDb in memory if the configuration is set to use it
+// Release memory after the application is closed
+app.DisposeMongoDbInMemory(builder.Configuration);

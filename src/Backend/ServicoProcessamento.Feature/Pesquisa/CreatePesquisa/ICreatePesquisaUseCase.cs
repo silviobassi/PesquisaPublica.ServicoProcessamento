@@ -1,6 +1,6 @@
-﻿using E7.EasyResult;
+﻿using ServicoProcessamento.Communication.E7.EasyResult;
 using ServicoProcessamento.Communication.Pesquisa.Requests;
-using ServicoProcessamento.Communication.Responses;
+using ServicoProcessamento.Communication.Pesquisa.Responses;
 
 namespace ServicoProcessamento.Feature.Pesquisa.CreatePesquisa;
 

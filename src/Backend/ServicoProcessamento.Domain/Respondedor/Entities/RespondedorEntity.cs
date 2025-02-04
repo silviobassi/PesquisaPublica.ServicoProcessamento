@@ -1,6 +1,6 @@
-﻿namespace ServicoProcessamento.Domain.Respondedor.Domain;
+﻿namespace ServicoProcessamento.Domain.Respondedor.Entities;
 
-public sealed class Respondedor(string id, string nome, string email, int idade)
+public sealed class RespondedorEntity(string id, string nome, string email, int idade)
 {
     public string Id { get; private set; } = id;
     public string Nome { get; private set; } = nome;
