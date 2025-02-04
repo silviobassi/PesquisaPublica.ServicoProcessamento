@@ -4,10 +4,10 @@ namespace ServicoProcessamento.Communication.Pesquisa.Requests;
 
 public record AtualizarPesquisaRequest
 {
-    public string Id { get; } = string.Empty;
-    public string Codigo { get; } = string.Empty;
-    public string? Inicio { get; } = string.Empty;
-    public string? Fim { get; } = string.Empty;
+    public string Id { get; init; } = string.Empty;
+    public string Codigo { get; init; } = string.Empty;
+    public string? Inicio { get; init; } = string.Empty;
+    public string? Fim { get; init; } = string.Empty;
 
     public DateTimeOffset? InicioAsDateTimeOffset =>
         DateTimeOffset.TryParse(Inicio, CultureInfo.InvariantCulture, DateTimeStyles.None, out var result)
