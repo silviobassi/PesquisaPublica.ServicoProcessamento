@@ -1,4 +1,5 @@
-﻿using ServicoProcessamento.Communication.E7.EasyResult;
+﻿using System.Diagnostics;
+using ServicoProcessamento.Communication.E7.EasyResult;
 using ServicoProcessamento.Communication.E7.EasyResult.Errors;
 using ServicoProcessamento.Communication.Pesquisa.Errors;
 using ServicoProcessamento.Communication.Pesquisa.Requests;
@@ -11,7 +12,7 @@ namespace ServicoProcessamento.Feature.Pesquisa.AtualizarPesquisa;
 
 public class AtualizarPesquisaUseCase(IPesquisaRepository pesquisaRepository) : IAtualizarPesquisaUseCase
 {
-    public async Task<Result> ExecuteAsync(AtualizarPesquisaRequest request)
+    public async Task<Result<bool>> ExecuteAsync(AtualizarPesquisaRequest request)
     {
         var validateAsync = await ValidateAsync(request);
 
@@ -24,7 +25,7 @@ public class AtualizarPesquisaUseCase(IPesquisaRepository pesquisaRepository) : 
             .Map(pesquisaRepository.AtualizarPesquisaAsync)
             .Bind(VerificarSePesquisaFoiAtualizada);
     }
-    
+
     private static async Task<Result<bool>> ValidateAsync(AtualizarPesquisaRequest request)
     {
         var validator = new AtualizarPesquisaValidator();

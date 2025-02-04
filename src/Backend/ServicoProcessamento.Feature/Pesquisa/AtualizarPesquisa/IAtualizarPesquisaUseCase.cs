@@ -5,5 +5,5 @@ namespace ServicoProcessamento.Feature.Pesquisa.AtualizarPesquisa;
 
 public interface IAtualizarPesquisaUseCase
 {
-    Task<Result> ExecuteAsync(AtualizarPesquisaRequest request);
+    Task<Result<bool>> ExecuteAsync(AtualizarPesquisaRequest request);
 }
